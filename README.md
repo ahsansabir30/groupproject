@@ -76,3 +76,5 @@ This application was hosted in a cluster built in the eu-west-3 region.
 
 ## Future
 For future work on what could be improved. We can add a mysql database to the application so that the application could be fully functioning and data could be stored and saved.
+
+https://docs.google.com/presentation/d/1bf-u06tj1sZU2nUczg9F5SZg47-PMiXpNgVEjio-BMo/edit#slide=id.g853649a333272b4_0
