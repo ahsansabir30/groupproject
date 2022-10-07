@@ -1,0 +1,60 @@
+---
+
+- name: "Install python3 and python pip"
+  apt:
+    name:
+    - python3
+    - python3-pip
+    state: latest
+    update_cache: true
+
+- name: Use python 3
+  shell: |
+    sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 1
+
+- name: "Install required packages"
+  apt:
+    pkg:
+      - apt-transport-https
+      - ca-certificates
+      - curl
+      - software-properties-common
+      - virtualenv
+      - python3-setuptools
+    state: latest
+    update_cache: true
+
+- name: "Add docker GPG key"
+  apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    state: present
+
+- name: "Add docker repository"
+  apt_repository:
+    repo: deb https://download.docker.com/linux/ubuntu bionic stable
+
+- name: "Install docker engine"
+  apt:
+    pkg:
+      - docker-ce
+      - containerd.io
+    state: latest
+    update_cache: true
+
+- name: "Install and upgrade pip"
+  pip:    
+    name: pip   
+    extra_args: --upgrade  
+    executable: pip3
+
+- name: "Docker pip installs"
+  pip:
+    name:
+      - docker
+      - jsondiff
+
+- name: "adding jenkins to docker group"
+  user:
+    name: jenkins
+    groups: docker
+    append: yes

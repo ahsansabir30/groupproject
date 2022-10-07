@@ -1,0 +1,13 @@
+---
+# tasks file for update-apt
+- name: "Update apt packages"
+  apt:
+    upgrade: yes
+    update_cache: yes
+
+- name: "Install unzip, wget and maven"
+  apt:
+    pkg: 
+    - unzip
+    - wget
+    - maven
