@@ -3,7 +3,7 @@ version: "3.8"
 services:
   frontend:
     build: ./frontend/spring-petclinic-angular
-    image: anassumrani/frontend:latest
+    image: ahsansabir30/frontend:latest
     ports:
     - target: 4200
       published: 4200
